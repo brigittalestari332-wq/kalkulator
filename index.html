@@ -63,10 +63,6 @@
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
-        .logo-item {
-            max-height: 32px;
-            object-fit: contain;
-        }
     </style>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col md:flex-row overflow-x-hidden custom-scrollbar">
@@ -89,7 +85,7 @@
             </button>
         </div>
 
-        <!-- Nav Links / Menu -->
+        <!-- Nav Links / Sidebar Menu -->
         <div class="sidebar-menu flex-1 p-3 space-y-1 overflow-y-auto custom-scrollbar max-h-[calc(100vh-80px)] md:max-h-none">
             <nav class="space-y-1">
                 <button onclick="switchTab('tab-basic')" id="nav-tab-basic" class="nav-btn active w-full flex items-center space-x-3 px-3.5 py-2.5 rounded-xl text-sm font-medium transition text-indigo-400 bg-slate-800/80 border border-slate-700/50">
@@ -144,17 +140,17 @@
         </div>
 
         <!-- Sidebar Logos -->
-        <div class="sidebar-logos p-4 border-t border-slate-800 flex items-center justify-around gap-2 bg-slate-900/50">
-            <img src="assets/img/logo-smkn1sanden.png" alt="SMKN 1 Sanden" class="logo-item" />
-            <img src="assets/img/logo-rpl.png" alt="RPL" class="logo-item" />
-            <img src="assets/img/logo-moko.png" alt="MOKO" class="logo-item" />
-            <img src="assets/img/logo-onesandvoscho.png" alt="ONESANDVOSCHO" class="logo-item" />
+        <div class="sidebar-logos p-3 border-t border-slate-800 flex items-center justify-around gap-2 bg-slate-950/40">
+            <img src="assets/img/logo4.jpeg" alt="SMKN 1 Sanden" class="logo-item h-8 w-8 object-contain rounded-lg border border-slate-800" />
+            <img src="assets/img/logo3.jpeg" alt="RPL" class="logo-item h-8 w-8 object-contain rounded-lg border border-slate-800" />
+            <img src="assets/img/logo2.jpeg" alt="MOKO" class="logo-item h-8 w-8 object-contain rounded-lg border border-slate-800" />
+            <img src="assets/img/logo1.jpeg" alt="ONESANDVOSCHO" class="logo-item h-8 w-8 object-contain rounded-lg border border-slate-800" />
         </div>
-
-        <!-- Sidebar Footer -->
+        
+        <!-- Footer info -->
         <div class="sidebar-footer p-4 border-t border-slate-800 text-xs text-slate-500 flex justify-between items-center">
             <span>v3.5 Studio Edition</span>
-            <span class="text-indigo-400 flex items-center gap-1"><i class="fa-solid fa-bolt"></i> Gemini Ready</span>
+            <span class="text-indigo-400"><i class="fa-solid fa-bolt"></i> Gemini Ready</span>
         </div>
     </aside>
 
@@ -226,6 +222,7 @@
             <!-- TAB 2: SCIENTIFIC CALCULATOR -->
             <section id="tab-scientific" class="tab-content hidden">
                 <div class="max-w-2xl mx-auto bg-slate-900 rounded-3xl p-6 border border-slate-800 shadow-2xl space-y-4">
+                    <!-- Mode Selector -->
                     <div class="flex justify-between items-center text-xs">
                         <div class="bg-slate-800 p-1 rounded-xl flex space-x-1 border border-slate-700">
                             <button id="sc-mode-deg" onclick="setAngleMode('DEG')" class="px-3 py-1 rounded-lg bg-indigo-600 text-white font-semibold">DEG</button>
@@ -235,11 +232,13 @@
                         <span id="sc-angle-label" class="text-amber-400 font-mono text-xs font-semibold">Mode: DEG</span>
                     </div>
 
+                    <!-- Screen -->
                     <div class="bg-slate-950 p-4 rounded-2xl border border-slate-800 flex flex-col justify-end text-right min-h-[110px]">
                         <div id="sc-expr" class="text-slate-400 text-sm font-mono-num h-6 overflow-x-auto whitespace-nowrap scrollbar-none"></div>
                         <div id="sc-display" class="text-3xl font-bold font-mono-num text-amber-400 tracking-tight overflow-x-auto whitespace-nowrap scrollbar-none">0</div>
                     </div>
 
+                    <!-- Scientific Grid Buttons -->
                     <div class="grid grid-cols-5 gap-2 text-xs font-semibold">
                         <button onclick="scFunc('sin')" class="btn-press p-3 rounded-xl bg-slate-800 text-indigo-300 hover:bg-slate-700">sin</button>
                         <button onclick="scFunc('cos')" class="btn-press p-3 rounded-xl bg-slate-800 text-indigo-300 hover:bg-slate-700">cos</button>
@@ -266,6 +265,7 @@
                         <button onclick="scFunc('sqrt')" class="btn-press p-3 rounded-xl bg-slate-800 text-purple-400 hover:bg-slate-700">√x</button>
                     </div>
 
+                    <!-- Keypad grid -->
                     <div class="grid grid-cols-4 gap-2">
                         <button onclick="scClear()" class="p-3 rounded-xl bg-red-500/20 text-red-400 font-bold">AC</button>
                         <button onclick="scDel()" class="p-3 rounded-xl bg-slate-800 text-amber-400 font-bold"><i class="fa-solid fa-backspace"></i></button>
@@ -298,6 +298,7 @@
             <!-- TAB 3: ALJABAR & MATEMATIKA -->
             <section id="tab-math" class="tab-content hidden">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- FPB & KPK / Bilangan Prima -->
                     <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800 space-y-4">
                         <h3 class="font-bold text-base text-indigo-400 border-b border-slate-800 pb-2"><i class="fa-solid fa-calculator me-2"></i> FPB, KPK & Cek Prima</h3>
                         <div class="grid grid-cols-2 gap-3">
@@ -318,6 +319,7 @@
                         </div>
                     </div>
 
+                    <!-- Persamaan Kuadrat -->
                     <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800 space-y-4">
                         <h3 class="font-bold text-base text-indigo-400 border-b border-slate-800 pb-2"><i class="fa-solid fa-square-root-variable me-2"></i> Persamaan Kuadrat (ax² + bx + c = 0)</h3>
                         <div class="grid grid-cols-3 gap-2">
@@ -342,6 +344,7 @@
                         </div>
                     </div>
 
+                    <!-- Operasi Pecahan -->
                     <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800 space-y-4">
                         <h3 class="font-bold text-base text-indigo-400 border-b border-slate-800 pb-2"><i class="fa-solid fa-divide me-2"></i> Kalkulator Pecahan</h3>
                         <div class="flex items-center space-x-2">
@@ -368,6 +371,7 @@
                         </div>
                     </div>
 
+                    <!-- Determinan Matriks 2x2 -->
                     <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800 space-y-4">
                         <h3 class="font-bold text-base text-indigo-400 border-b border-slate-800 pb-2"><i class="fa-solid fa-table-cells me-2"></i> Determinan & Invers Matriks 2x2</h3>
                         <div class="grid grid-cols-2 gap-2 max-w-[200px] mx-auto">
@@ -388,6 +392,7 @@
             <!-- TAB 4: KEUANGAN & BISNIS -->
             <section id="tab-finance" class="tab-content hidden">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Cicilan Pinjaman / KPR -->
                     <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800 space-y-4">
                         <h3 class="font-bold text-base text-emerald-400 border-b border-slate-800 pb-2"><i class="fa-solid fa-house-circle-check me-2"></i> Simulasi Pinjaman & KPR</h3>
                         <div class="space-y-3">
@@ -414,6 +419,7 @@
                         </div>
                     </div>
 
+                    <!-- Bunga Majemuk & Investasi -->
                     <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800 space-y-4">
                         <h3 class="font-bold text-base text-emerald-400 border-b border-slate-800 pb-2"><i class="fa-solid fa-chart-line me-2"></i> Bunga Majemuk & Investasi</h3>
                         <div class="space-y-3">
@@ -439,9 +445,11 @@
                         </div>
                     </div>
 
+                    <!-- Margin, Markup & Break-Even -->
                     <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800 space-y-4 md:col-span-2">
                         <h3 class="font-bold text-base text-emerald-400 border-b border-slate-800 pb-2"><i class="fa-solid fa-calculator me-2"></i> Diskon, Pajak & Break-Even Point (BEP)</h3>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <!-- Diskon & Pajak -->
                             <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 space-y-2">
                                 <h4 class="text-xs font-bold text-slate-300">Kalkulator Diskon & Pajak</h4>
                                 <input type="number" id="disc-price" placeholder="Harga Asli (Rp)" value="250000" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-1.5 text-xs">
@@ -452,6 +460,7 @@
                                 <button onclick="calcDiscountTax()" class="w-full bg-indigo-600 text-white py-1 rounded-lg text-xs font-bold">Hitung Total</button>
                                 <div id="disc-res" class="text-xs text-amber-400 font-mono-num font-bold">Total Akhir: Rp 222,000</div>
                             </div>
+                            <!-- BEP -->
                             <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 space-y-2">
                                 <h4 class="text-xs font-bold text-slate-300">Break-Even Point (BEP) Unit</h4>
                                 <input type="number" id="bep-fixed" placeholder="Biaya Tetap (Fixed Cost)" value="5000000" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-1.5 text-xs">
@@ -460,6 +469,7 @@
                                 <button onclick="calcBEP()" class="w-full bg-indigo-600 text-white py-1 rounded-lg text-xs font-bold">Hitung BEP</button>
                                 <div id="bep-res" class="text-xs text-emerald-400 font-mono-num font-bold">BEP: 250 Unit</div>
                             </div>
+                            <!-- Profit Margin -->
                             <div class="bg-slate-950 p-3 rounded-xl border border-slate-800 space-y-2">
                                 <h4 class="text-xs font-bold text-slate-300">Profit Margin & Markup</h4>
                                 <input type="number" id="pm-cost" placeholder="Modal / HPP (Rp)" value="80000" class="w-full bg-slate-900 border border-slate-700 rounded-lg p-1.5 text-xs">
@@ -493,11 +503,13 @@
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 items-center">
+                        <!-- From Unit -->
                         <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
                             <label class="text-xs text-slate-400 block">Dari Satuan</label>
                             <input type="number" id="conv-input-val" value="1" oninput="convertUnit()" class="w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-lg font-bold font-mono-num text-white">
                             <select id="conv-from-unit" onchange="convertUnit()" class="w-full bg-slate-800 border border-slate-700 rounded-lg p-2 text-xs text-slate-300"></select>
                         </div>
+                        <!-- To Unit -->
                         <div class="bg-slate-950 p-4 rounded-xl border border-slate-800 space-y-2">
                             <label class="text-xs text-slate-400 block">Ke Satuan</label>
                             <div id="conv-output-val" class="w-full bg-slate-900/50 border border-slate-800 rounded-lg px-3 py-2 text-lg font-bold font-mono-num text-emerald-400 min-h-[46px] flex items-center">100</div>
@@ -510,9 +522,11 @@
             <!-- TAB 6: PROGRAMMER CALCULATOR -->
             <section id="tab-programmer" class="tab-content hidden">
                 <div class="max-w-3xl mx-auto space-y-6">
+                    <!-- Base Converter Card -->
                     <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800 space-y-4">
                         <h3 class="font-bold text-base text-cyan-400 border-b border-slate-800 pb-2"><i class="fa-solid fa-code me-2"></i> Konversi Basis Data & Bitwise</h3>
                         
+                        <!-- Inputs for HEX, DEC, OCT, BIN -->
                         <div class="space-y-2 font-mono-num text-xs">
                             <div class="flex items-center space-x-2 bg-slate-950 p-2.5 rounded-xl border border-slate-800">
                                 <span class="w-12 font-bold text-amber-400">HEX</span>
@@ -533,7 +547,9 @@
                         </div>
                     </div>
 
+                    <!-- Bitwise & Color Utilities -->
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Bitwise Operations -->
                         <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800 space-y-3">
                             <h4 class="font-bold text-sm text-cyan-400 border-b border-slate-800 pb-2">Bitwise Logic</h4>
                             <div class="grid grid-cols-2 gap-2">
@@ -551,6 +567,7 @@
                             <div id="bit-res" class="bg-slate-950 p-2.5 rounded-xl border border-slate-800 text-xs font-mono-num text-amber-400">Hasil: 4 (BIN: 100)</div>
                         </div>
 
+                        <!-- RGB ↔ HEX & ASCII -->
                         <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800 space-y-3">
                             <h4 class="font-bold text-sm text-cyan-400 border-b border-slate-800 pb-2">RGB ↔ HEX Color & ASCII</h4>
                             <div class="flex items-center space-x-2">
@@ -572,8 +589,10 @@
             <!-- TAB 7: SAINS & FISIKA -->
             <section id="tab-science" class="tab-content hidden">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Fisika Mekanika -->
                     <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800 space-y-4">
                         <h3 class="font-bold text-base text-rose-400 border-b border-slate-800 pb-2"><i class="fa-solid fa-gauge-high me-2"></i> Kecepatan, Massa Jenis & Gaya</h3>
+                        <!-- Kecepatan -->
                         <div class="space-y-2 bg-slate-950 p-3 rounded-xl border border-slate-800">
                             <h4 class="text-xs font-bold text-slate-300">v = s / t (Kecepatan)</h4>
                             <div class="grid grid-cols-2 gap-2">
@@ -583,6 +602,7 @@
                             <button onclick="calcVelocity()" class="w-full bg-rose-600 hover:bg-rose-500 text-white py-1 rounded-lg text-xs font-bold">Hitung Kecepatan</button>
                             <div id="phy-v-res" class="text-xs font-mono-num text-amber-400 font-bold">v = 10 m/s (36 km/jam)</div>
                         </div>
+                        <!-- Hukum II Newton F = m * a -->
                         <div class="space-y-2 bg-slate-950 p-3 rounded-xl border border-slate-800">
                             <h4 class="text-xs font-bold text-slate-300">F = m × a (Gaya Newton)</h4>
                             <div class="grid grid-cols-2 gap-2">
@@ -594,6 +614,7 @@
                         </div>
                     </div>
 
+                    <!-- Kelistrikan (Hukum Ohm) -->
                     <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800 space-y-4">
                         <h3 class="font-bold text-base text-rose-400 border-b border-slate-800 pb-2"><i class="fa-solid fa-bolt me-2"></i> Hukum Ohm & Daya Listrik</h3>
                         <div class="space-y-3">
@@ -634,12 +655,14 @@
                         </select>
                     </div>
 
+                    <!-- Dynamic Input Controls -->
                     <div id="geo-inputs" class="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <!-- Controls generated via JS -->
                     </div>
 
                     <button onclick="calculateGeometry()" class="w-full bg-teal-600 hover:bg-teal-500 text-slate-950 font-bold py-2.5 rounded-xl text-xs transition">Kalkulasi Bangun</button>
 
+                    <!-- Results -->
                     <div id="geo-results" class="bg-slate-950 p-4 rounded-xl border border-slate-800 text-xs font-mono-num grid grid-cols-2 gap-2">
                         <div>Luas / Luas Alas: <span class="text-amber-400 font-bold">-</span></div>
                         <div>Keliling / Keliling Alas: <span class="text-amber-400 font-bold">-</span></div>
@@ -652,6 +675,7 @@
             <!-- TAB 9: TANGGAL & WAKTU -->
             <section id="tab-date" class="tab-content hidden">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Selisih Tanggal & Umur -->
                     <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800 space-y-4">
                         <h3 class="font-bold text-base text-orange-400 border-b border-slate-800 pb-2"><i class="fa-solid fa-calendar-day me-2"></i> Hitung Umur & Selisih Tanggal</h3>
                         <div class="space-y-3">
@@ -671,6 +695,7 @@
                         </div>
                     </div>
 
+                    <!-- Tambah / Kurang Hari -->
                     <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800 space-y-4">
                         <h3 class="font-bold text-base text-orange-400 border-b border-slate-800 pb-2"><i class="fa-solid fa-clock me-2"></i> Tambah / Kurangi Hari</h3>
                         <div class="space-y-3">
@@ -695,6 +720,7 @@
             <!-- TAB 10: SEHARI-HARI & LIFESTYLE -->
             <section id="tab-lifestyle" class="tab-content hidden">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Split Bill & Tip -->
                     <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800 space-y-4">
                         <h3 class="font-bold text-base text-pink-400 border-b border-slate-800 pb-2"><i class="fa-solid fa-receipt me-2"></i> Split Bill & Tips Restoran</h3>
                         <div class="space-y-3">
@@ -720,6 +746,7 @@
                         </div>
                     </div>
 
+                    <!-- Kebutuhan Cat & Keramik Ruangan -->
                     <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800 space-y-4">
                         <h3 class="font-bold text-base text-pink-400 border-b border-slate-800 pb-2"><i class="fa-solid fa-paint-roller me-2"></i> Estimasi Kebutuhan Cat Ruangan</h3>
                         <div class="space-y-3">
@@ -750,6 +777,7 @@
 
                     <button onclick="calcStatistics()" class="w-full bg-yellow-600 hover:bg-yellow-500 text-slate-950 font-bold py-2.5 rounded-xl text-xs transition">Analisis Data</button>
 
+                    <!-- Metrics Grid -->
                     <div id="stats-metrics" class="grid grid-cols-2 md:grid-cols-4 gap-3 text-xs font-mono-num">
                         <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">Mean: <span class="text-amber-400 font-bold block text-sm">-</span></div>
                         <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">Median: <span class="text-amber-400 font-bold block text-sm">-</span></div>
@@ -757,13 +785,14 @@
                         <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">Std Deviasi: <span class="text-emerald-400 font-bold block text-sm">-</span></div>
                     </div>
 
+                    <!-- Chart Container -->
                     <div class="bg-slate-950 p-4 rounded-xl border border-slate-800">
                         <canvas id="stats-chart" class="max-h-64"></canvas>
                     </div>
                 </div>
             </section>
 
-            <!-- TAB 12: AI MATH SOLVER -->
+            <!-- TAB 12: AI MATH SOLVER (GEMINI API INTEGRATION) -->
             <section id="tab-ai" class="tab-content hidden">
                 <div class="max-w-3xl mx-auto space-y-6">
                     <div class="bg-slate-900 rounded-2xl p-6 border border-amber-500/30 space-y-4 shadow-xl">
@@ -777,6 +806,7 @@
                             </div>
                         </div>
 
+                        <!-- User Prompt Input -->
                         <div class="space-y-3">
                             <textarea id="ai-prompt" rows="3" placeholder="Contoh: Hitung luas lingkaran dengan diameter 20 cm beserta langkah-langkahnya..." class="w-full bg-slate-950 border border-slate-700 rounded-xl p-3 text-sm text-white focus:outline-none focus:border-amber-500 custom-scrollbar"></textarea>
                             
@@ -794,6 +824,7 @@
                         </div>
                     </div>
 
+                    <!-- AI Response Container -->
                     <div id="ai-response-card" class="bg-slate-900 rounded-2xl p-6 border border-slate-800 hidden space-y-3">
                         <div class="flex justify-between items-center border-b border-slate-800 pb-2">
                             <span class="text-xs font-bold text-amber-400 flex items-center gap-2">
@@ -838,18 +869,20 @@
         let activeTabId = 'tab-basic';
         let calcHistory = [];
         let lastCalcResult = '0';
-        let angleMode = 'DEG';
+        let angleMode = 'DEG'; // DEG, RAD, GRAD
         let statsChartInstance = null;
 
+        // Init on DOM Load
         window.onload = function() {
             updateGeometryUI();
             updateConverterUnits();
             initDateDefaults();
             calcStatistics();
             
+            // Mobile menu toggle
             document.getElementById('mobile-menu-btn').addEventListener('click', () => {
                 const nav = document.querySelector('.sidebar-menu');
-                if (nav) nav.classList.toggle('hidden');
+                nav.classList.toggle('hidden');
             });
         };
 
@@ -868,6 +901,7 @@
                 activeBtn.classList.add('active', 'text-indigo-400', 'bg-slate-800/80', 'border', 'border-slate-700/50');
                 activeBtn.classList.remove('text-slate-400');
                 
+                // Update title
                 document.getElementById('current-tab-title').innerHTML = activeBtn.innerHTML;
             }
             activeTabId = tabId;
@@ -1278,17 +1312,6 @@
             document.getElementById('rgb-res').innerText = `RGB: rgb(${r}, ${g}, ${b})`;
         }
 
-        function updateRGBFromHexStr() {
-            let hex = document.getElementById('rgb-hex-str').value;
-            if (/^#[0-9A-F]{6}$/i.test(hex)) {
-                document.getElementById('rgb-picker').value = hex;
-                let r = parseInt(hex.slice(1,3), 16);
-                let g = parseInt(hex.slice(3,5), 16);
-                let b = parseInt(hex.slice(5,7), 16);
-                document.getElementById('rgb-res').innerText = `RGB: rgb(${r}, ${g}, ${b})`;
-            }
-        }
-
         function convertAscii() {
             let text = document.getElementById('ascii-text').value;
             let hex = text.split('').map(c => c.charCodeAt(0).toString(16)).join(' ');
@@ -1419,70 +1442,56 @@
             let h = parseFloat(document.getElementById('paint-h').value);
 
             let wallArea = 2 * (w + l) * h;
-            let liters = (wallArea / 12) * 2;
+            let liters = (wallArea / 12) * 2; // 1 Liter covers 12sqm (2 coats)
 
             document.getElementById('paint-res').innerHTML = `
-                <div>Luas Dinding: <span class="text-slate-300">${wallArea} m²</span></div>
+                <div>Luas Dinding: <span class="text-slate-300">${wallArea.toFixed(1)} m²</span></div>
                 <div>Estimasi Cat Diperlukan: <span class="text-amber-400 font-bold">~${liters.toFixed(1)} Liter (2 Lapis)</span></div>
             `;
         }
 
         function calcStatistics() {
             let raw = document.getElementById('stats-input').value;
-            let nums = raw.split(',').map(n => parseFloat(n.trim())).filter(n => !isNaN(n));
+            let arr = raw.split(',').map(v => parseFloat(v.trim())).filter(v => !isNaN(v)).sort((a,b)=>a-b);
             
-            if(nums.length === 0) return;
+            if(arr.length === 0) return;
 
-            nums.sort((a,b) => a - b);
+            let sum = arr.reduce((a,b)=>a+b, 0);
+            let mean = sum / arr.length;
 
-            let sum = nums.reduce((a, b) => a + b, 0);
-            let mean = sum / nums.length;
+            let mid = Math.floor(arr.length/2);
+            let median = arr.length % 2 !== 0 ? arr[mid] : (arr[mid-1] + arr[mid])/2;
 
-            let median = 0;
-            let mid = Math.floor(nums.length / 2);
-            if (nums.length % 2 === 0) {
-                median = (nums[mid - 1] + nums[mid]) / 2;
-            } else {
-                median = nums[mid];
-            }
-
+            // Mode
             let counts = {};
-            nums.forEach(n => counts[n] = (counts[n] || 0) + 1);
-            let maxFreq = 0;
-            let modes = [];
-            for (let n in counts) {
-                if (counts[n] > maxFreq) {
-                    maxFreq = counts[n];
-                    modes = [n];
-                } else if (counts[n] === maxFreq) {
-                    modes.push(n);
-                }
+            arr.forEach(x => counts[x] = (counts[x] || 0) + 1);
+            let maxF = 0, mode = '-';
+            for(let k in counts) {
+                if(counts[k] > maxF) { maxF = counts[k]; mode = k; }
             }
-            let modeStr = (modes.length === nums.length || maxFreq === 1) ? 'Tidak Ada' : modes.join(', ');
 
-            let variance = nums.reduce((a, b) => a + Math.pow(b - mean, 2), 0) / nums.length;
+            let variance = arr.reduce((a,b)=>a + Math.pow(b - mean, 2), 0) / arr.length;
             let stdDev = Math.sqrt(variance);
 
-            let metricsHtml = `
+            document.getElementById('stats-metrics').innerHTML = `
                 <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">Mean: <span class="text-amber-400 font-bold block text-sm">${mean.toFixed(2)}</span></div>
                 <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">Median: <span class="text-amber-400 font-bold block text-sm">${median}</span></div>
-                <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">Modus: <span class="text-amber-400 font-bold block text-sm">${modeStr}</span></div>
+                <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">Modus: <span class="text-amber-400 font-bold block text-sm">${mode}</span></div>
                 <div class="bg-slate-950 p-3 rounded-xl border border-slate-800">Std Deviasi: <span class="text-emerald-400 font-bold block text-sm">${stdDev.toFixed(2)}</span></div>
             `;
-            document.getElementById('stats-metrics').innerHTML = metricsHtml;
 
+            // Chart
             const ctx = document.getElementById('stats-chart').getContext('2d');
-            if (statsChartInstance) {
-                statsChartInstance.destroy();
-            }
+            if(statsChartInstance) statsChartInstance.destroy();
+
             statsChartInstance = new Chart(ctx, {
                 type: 'bar',
                 data: {
-                    labels: nums.map((_, i) => `#${i + 1}`),
+                    labels: arr.map((_, i) => `Sample ${i+1}`),
                     datasets: [{
                         label: 'Nilai Data',
-                        data: nums,
-                        backgroundColor: 'rgba(99, 102, 241, 0.5)',
+                        data: arr,
+                        backgroundColor: 'rgba(99, 102, 241, 0.6)',
                         borderColor: 'rgba(99, 102, 241, 1)',
                         borderWidth: 1
                     }]
@@ -1490,32 +1499,61 @@
                 options: {
                     responsive: true,
                     scales: {
-                        y: { beginAtZero: true }
+                        y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' } },
+                        x: { grid: { color: 'rgba(255,255,255,0.05)' } }
                     }
                 }
             });
         }
 
-        function setAiPrompt(text) {
-            document.getElementById('ai-prompt').value = text;
+        function setAiPrompt(promptText) {
+            document.getElementById('ai-prompt').value = promptText;
         }
 
-        function askGeminiAi() {
-            const prompt = document.getElementById('ai-prompt').value;
-            if(!prompt.trim()) return;
+        async function askGeminiAi() {
+            const prompt = document.getElementById('ai-prompt').value.trim();
+            if(!prompt) {
+                alert('Silakan masukkan soal matematika atau pertanyaan Anda!');
+                return;
+            }
 
             const responseCard = document.getElementById('ai-response-card');
             const responseText = document.getElementById('ai-response-text');
             const loading = document.getElementById('ai-loading');
+            const solveBtn = document.getElementById('ai-solve-btn');
 
             responseCard.classList.remove('hidden');
             loading.classList.remove('hidden');
             responseText.innerText = '';
+            solveBtn.disabled = true;
 
-            setTimeout(() => {
+            const systemPrompt = "Anda adalah Guru Matematika AI berpengalaman. Berikan langkah penyelesaian soal matematika dengan rapi, jelas, dan mudah dipahami. Gunakan format poin-poin jika diperlukan.";
+            const apiKey = ""; // Canvas runtime automatically supplies key if empty
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+
+            const payload = {
+                contents: [{ parts: [{ text: prompt }] }],
+                systemInstruction: { parts: [{ text: systemPrompt }] }
+            };
+
+            try {
+                const res = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                const data = await res.json();
+                if (data.candidates && data.candidates[0].content.parts[0].text) {
+                    responseText.innerText = data.candidates[0].content.parts[0].text;
+                } else {
+                    responseText.innerText = 'Maaf, gagal mendapatkan respon dari AI.';
+                }
+            } catch (err) {
+                responseText.innerText = 'Terjadi kesalahan saat menghubungkan ke server Gemini AI.';
+            } finally {
                 loading.classList.add('hidden');
-                responseText.innerText = `Berikut jawaban AI untuk: "${prompt}"\n\n1. Langkah pertama adalah memahami nilai variabel yang diketahui.\n2. Lakukan perhitungan secara berurutan sesuai rumus.\n3. Hasil akhir telah diverifikasi secara presisi.`;
-            }, 1500);
+                solveBtn.disabled = false;
+            }
         }
     </script>
 </body>
