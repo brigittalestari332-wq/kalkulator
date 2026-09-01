@@ -139,12 +139,9 @@
             </nav>
         </div>
 
-        <!-- Sidebar Logos -->
-        <div class="sidebar-logos p-3 border-t border-slate-800 flex items-center justify-around gap-2 bg-slate-950/40">
-            <img src="assets/img/logo4.jpeg" alt="SMKN 1 Sanden" class="logo-item h-8 w-8 object-contain rounded-lg border border-slate-800" />
-            <img src="assets/img/logo3.jpeg" alt="RPL" class="logo-item h-8 w-8 object-contain rounded-lg border border-slate-800" />
-            <img src="assets/img/logo2.jpeg" alt="MOKO" class="logo-item h-8 w-8 object-contain rounded-lg border border-slate-800" />
-            <img src="assets/img/logo1.jpeg" alt="ONESANDVOSCHO" class="logo-item h-8 w-8 object-contain rounded-lg border border-slate-800" />
+        <!-- Dynamic Sidebar Logos Container -->
+        <div id="sidebar-logos" class="sidebar-logos p-3 border-t border-slate-800 flex items-center justify-around gap-2 bg-slate-950/40 flex-wrap">
+            <!-- Rendered automatically via Javascript -->
         </div>
         
         <!-- Footer info -->
@@ -866,6 +863,23 @@
     </div>
 
     <script>
+        // Data Konfigurasi Logo Sidebar Dinamis (Dapat ditambah/dikurangi kapan saja)
+        const logoData = [
+            { src: "assets/img/logo4.jpeg", alt: "SMKN 1 Sanden" },
+            { src: "assets/img/logo3.jpeg", alt: "RPL" },
+            { src: "assets/img/logo2.jpeg", alt: "MOKO" },
+            { src: "assets/img/logo1.jpeg", alt: "ONESANDVOSCHO" }
+        ];
+
+        function renderSidebarLogos() {
+            const container = document.getElementById('sidebar-logos');
+            if (!container) return;
+            
+            container.innerHTML = logoData.map(logo => `
+                <img src="${logo.src}" alt="${logo.alt}" class="logo-item h-8 w-8 object-contain rounded-lg border border-slate-800" />
+            `).join('');
+        }
+
         let activeTabId = 'tab-basic';
         let calcHistory = [];
         let lastCalcResult = '0';
@@ -874,6 +888,7 @@
 
         // Init on DOM Load
         window.onload = function() {
+            renderSidebarLogos(); // Render logo dinamis
             updateGeometryUI();
             updateConverterUnits();
             initDateDefaults();
@@ -1528,32 +1543,7 @@
             solveBtn.disabled = true;
 
             const systemPrompt = "Anda adalah Guru Matematika AI berpengalaman. Berikan langkah penyelesaian soal matematika dengan rapi, jelas, dan mudah dipahami. Gunakan format poin-poin jika diperlukan.";
-            const apiKey = ""; // Canvas runtime automatically supplies key if empty
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
-
-            const payload = {
-                contents: [{ parts: [{ text: prompt }] }],
-                systemInstruction: { parts: [{ text: systemPrompt }] }
-            };
-
-            try {
-                const res = await fetch(apiUrl, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload)
-                });
-                const data = await res.json();
-                if (data.candidates && data.candidates[0].content.parts[0].text) {
-                    responseText.innerText = data.candidates[0].content.parts[0].text;
-                } else {
-                    responseText.innerText = 'Maaf, gagal mendapatkan respon dari AI.';
-                }
-            } catch (err) {
-                responseText.innerText = 'Terjadi kesalahan saat menghubungkan ke server Gemini AI.';
-            } finally {
-                loading.classList.add('hidden');
-                solveBtn.disabled = false;
-            }
+            const apiKey = "";
         }
     </script>
 </body>
